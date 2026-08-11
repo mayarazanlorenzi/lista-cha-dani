@@ -3,435 +3,516 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Lista de Presentes — Chá da Dani</title>
+<meta name="theme-color" content="#fff8f4">
+<title>Lista de Presentes — Chá de Panela da Dani</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
-
-* {
-    box-sizing: border-box;
+:root{
+  --creme:#fff8f4;
+  --creme2:#fff2ec;
+  --rosa:#e94d78;
+  --rosa-claro:#f8c8d5;
+  --coral:#ed6335;
+  --laranja:#f47743;
+  --vinho:#743d3b;
+  --linha:#f3b3a4;
 }
 
-body {
-    margin: 0;
-    background: #fff7f4;
-    color: #633d38;
-    font-family: 'Cormorant Garamond', serif;
+*{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
 }
 
-.container {
-    width: 100%;
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 28px 22px 45px;
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
+body{
+  margin:0;
+  background:var(--creme);
+  color:var(--vinho);
+  font-family:Georgia,"Times New Roman",serif;
 }
 
-/* Moldura */
-
-.container::before {
-    content: "";
-    position: absolute;
-    inset: 12px;
-    border: 1px solid #efb5a8;
-    border-radius: 28px;
-    pointer-events: none;
+.page{
+  width:min(100%,980px);
+  margin:0 auto;
+  padding:0 18px 42px;
 }
 
-/* Decoração */
-
-.flower {
-    position: absolute;
-    font-size: 45px;
-    opacity: .8;
+.hero{
+  position:relative;
+  margin:18px auto 0;
+  border:1.5px solid #ef9b87;
+  border-radius:24px;
+  overflow:hidden;
+  background:var(--creme);
+  box-shadow:0 10px 35px rgba(210,100,90,.10);
 }
 
-.flower.one {
-    top: 20px;
-    left: 15px;
+.hero-art{
+  width:100%;
+  display:block;
+  height:auto;
+  object-fit:contain;
+  object-position:center;
 }
 
-.flower.two {
-    top: 20px;
-    right: 15px;
+.list-area{
+  position:relative;
+  margin-top:0;
+  padding:18px 6% 30px;
+  background:
+    radial-gradient(circle at 7% 10%, rgba(246,115,74,.10) 0 2px, transparent 3px),
+    radial-gradient(circle at 93% 18%, rgba(233,77,120,.10) 0 2px, transparent 3px),
+    var(--creme);
 }
 
-.flower.three {
-    bottom: 20px;
-    left: 15px;
+.list-title{
+  text-align:center;
+  margin:8px 0 24px;
+  color:var(--rosa);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:32px;
+  font-weight:600;
 }
 
-.flower.four {
-    bottom: 20px;
-    right: 15px;
+.presente{
+  width:100%;
+  min-height:58px;
+  margin:0 0 13px;
+  padding:14px 20px;
+  border:1px solid #f3b6a9;
+  border-radius:18px;
+  background:linear-gradient(180deg,#fffaf7,#fff4ef);
+  box-shadow:
+    0 4px 10px rgba(215,101,85,.10),
+    inset 0 0 0 1px rgba(255,255,255,.7);
+  color:var(--vinho);
+  font:400 17px/1.3 Georgia,"Times New Roman",serif;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition:
+    transform .16s ease,
+    box-shadow .16s ease,
+    background .16s ease;
 }
 
-/* Cabeçalho */
-
-.header {
-    text-align: center;
-    padding: 35px 20px 25px;
+.presente:hover{
+  transform:translateY(-2px);
+  box-shadow:0 7px 16px rgba(215,101,85,.16);
+  background:#fff0ea;
 }
 
-.small-title {
-    color: #d95b32;
-    font-size: 25px;
-    letter-spacing: 1px;
-    margin-bottom: 0;
+.presente:active{
+  transform:translateY(0);
 }
 
-.title {
-    font-family: 'Great Vibes', cursive;
-    color: #e4572e;
-    font-size: 75px;
-    line-height: .9;
-    margin: 5px 0 20px;
+.presente::before{
+  content:"✿";
+  color:var(--coral);
+  margin-right:12px;
+  font-size:18px;
 }
 
-.pan {
-    font-size: 65px;
-    margin: 10px 0;
+.presente::after{
+  content:"✿";
+  color:var(--coral);
+  margin-left:12px;
+  font-size:18px;
 }
 
-.subtitle {
-    color: #d94d72;
-    font-size: 26px;
-    margin: 15px 0 8px;
+.note{
+  text-align:center;
+  color:#8c5b55;
+  font-size:14px;
+  line-height:1.4;
+  margin:22px auto 0;
 }
 
-.description {
-    font-size: 20px;
-    line-height: 1.35;
-    margin: 0 auto;
-    max-width: 500px;
+.decoracao{
+  text-align:center;
+  color:var(--coral);
+  font-size:25px;
+  letter-spacing:8px;
+  margin:12px 0 20px;
 }
 
-/* Separador */
-
-.divider {
-    text-align: center;
-    color: #e65b32;
-    font-size: 24px;
-    margin: 20px 0 28px;
+.footer{
+  text-align:center;
+  padding:18px 10px 30px;
+  color:var(--vinho);
 }
 
-/* Lista */
-
-.list-title {
-    text-align: center;
-    color: #d94d72;
-    font-size: 24px;
-    margin-bottom: 8px;
+.footer-title{
+  color:var(--rosa);
+  font-size:25px;
+  margin-bottom:8px;
 }
 
-.list-title-big {
-    font-family: 'Great Vibes', cursive;
-    color: #e4572e;
-    font-size: 55px;
-    text-align: center;
-    margin: 0 0 25px;
+.footer-text{
+  font-size:17px;
+  line-height:1.45;
+  max-width:650px;
+  margin:0 auto;
 }
 
-/* Itens */
+@media(max-width:600px){
 
-.gift-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+  .page{
+    padding:0 9px 24px;
+  }
 
-.gift {
-    background: rgba(255,255,255,.65);
-    border: 1px solid #efc2b7;
-    border-radius: 18px;
-    padding: 15px 20px;
-    font-size: 20px;
-    line-height: 1.2;
-    text-align: center;
-    cursor: pointer;
-    transition: .2s;
-    box-shadow: 0 3px 8px rgba(190,100,80,.08);
-}
+  .hero{
+    margin-top:8px;
+    border-radius:17px;
+  }
 
-.gift:hover {
-    transform: translateY(-2px);
-    background: #fff0ec;
-}
+  .list-area{
+    padding:12px 5% 20px;
+  }
 
-.gift:active {
-    transform: scale(.98);
-}
+  .list-title{
+    font-size:28px;
+    margin-bottom:20px;
+  }
 
-/* Rodapé */
+  .presente{
+    min-height:54px;
+    font-size:15px;
+    padding:12px 10px;
+    border-radius:15px;
+  }
 
-.footer {
-    text-align: center;
-    margin-top: 38px;
-}
+  .presente::before,
+  .presente::after{
+    font-size:15px;
+  }
 
-.footer-message {
-    font-size: 19px;
-    line-height: 1.4;
-    max-width: 480px;
-    margin: 0 auto 18px;
-}
+  .note{
+    font-size:12px;
+  }
 
-.thanks {
-    font-family: 'Great Vibes', cursive;
-    color: #e4572e;
-    font-size: 48px;
-}
-
-.note {
-    font-size: 15px;
-    color: #9b6a61;
-    margin-top: 15px;
-}
-
-@media (max-width: 500px) {
-
-    .container {
-        padding: 20px 17px 35px;
-    }
-
-    .small-title {
-        font-size: 21px;
-    }
-
-    .title {
-        font-size: 63px;
-    }
-
-    .pan {
-        font-size: 52px;
-    }
-
-    .subtitle {
-        font-size: 23px;
-    }
-
-    .description {
-        font-size: 18px;
-    }
-
-    .list-title-big {
-        font-size: 48px;
-    }
-
-    .gift {
-        font-size: 18px;
-        padding: 14px 15px;
-    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<main class="page">
 
-    <div class="flower one">🌸</div>
-    <div class="flower two">🌸</div>
-    <div class="flower three">🌸</div>
-    <div class="flower four">🌸</div>
+  <section class="hero" aria-label="Chá de Panela da Dani">
 
-    <header class="header">
+    <!--
+      A arte do cabeçalho será exibida aqui.
+      Se você tiver a imagem identidade-dani.png no mesmo
+      repositório, ela será utilizada automaticamente.
+    -->
 
-        <div class="small-title">
-            CHÁ DE PANELA DA
-        </div>
+    <img
+      class="hero-art"
+      src="identidade-dani.png"
+      alt="Chá de Panela da Dani"
+    >
 
-        <div class="title">
-            Dani
-        </div>
+  </section>
 
-        <div class="pan">
-            🥘
-        </div>
+  <section class="list-area">
 
-        <div class="subtitle">
-        </div>
-
-        <p class="description">
-            Para ajudar a Dani a construir seu novo lar com muito amor, preparamos esta lista de sugestões. Escolha o presente que gostaria de dar e clique nele para nos contar sua escolha pelo WhatsApp. Assim, conseguimos organizar tudo com carinho e evitamos presentes repetidos.
-    
-
-            Estamos muito felizes em compartilhar esse momento tão especial com você e celebrar junto com a Dani o início dessa nova fase!
-        </p>
-
-    </header>
-
-    <div class="divider">
-        ─── ♥ ───
+    <div class="decoracao">
+      ✿ 𖧷 ✿
     </div>
 
-    <div class="list-title">
-        NOSSAS SUGESTÕES
+    <h2 class="list-title">
+      Lista de Presentes
+    </h2>
+
+    <div id="lista">
+
+      <button class="presente" data-item="jogo de copos (sem desenhos/liso)" onclick="escolher(this)">
+        jogo de copos (sem desenhos/liso)
+      </button>
+
+      <button class="presente" data-item="jogo de copos (sem desenhos/liso)" onclick="escolher(this)">
+        jogo de copos (sem desenhos/liso)
+      </button>
+
+      <button class="presente" data-item="jogo de copos (sem desenhos/liso)" onclick="escolher(this)">
+        jogo de copos (sem desenhos/liso)
+      </button>
+
+      <button class="presente" data-item="porta temperos giratório de bambu" onclick="escolher(this)">
+        porta temperos giratório de bambu
+      </button>
+
+      <button class="presente" data-item="jogo de talheres para churrasco" onclick="escolher(this)">
+        jogo de talheres para churrasco
+      </button>
+
+      <button class="presente" data-item="jogo de talheres para churrasco" onclick="escolher(this)">
+        jogo de talheres para churrasco
+      </button>
+
+      <button class="presente" data-item="jogo de talheres para churrasco" onclick="escolher(this)">
+        jogo de talheres para churrasco
+      </button>
+
+      <button class="presente" data-item="garrafa térmica clara" onclick="escolher(this)">
+        garrafa térmica clara
+      </button>
+
+      <button class="presente" data-item="jogo de talheres de inox" onclick="escolher(this)">
+        jogo de talheres de inox
+      </button>
+
+      <button class="presente" data-item="relógio de parede" onclick="escolher(this)">
+        relógio de parede
+      </button>
+
+      <button class="presente" data-item="lixeira de inox" onclick="escolher(this)">
+        lixeira de inox
+      </button>
+
+      <button class="presente" data-item="lixeira de inox" onclick="escolher(this)">
+        lixeira de inox
+      </button>
+
+      <button class="presente" data-item="tapete de cozinha" onclick="escolher(this)">
+        tapete de cozinha
+      </button>
+
+      <button class="presente" data-item="tapete de banheiro" onclick="escolher(this)">
+        tapete de banheiro
+      </button>
+
+      <button class="presente" data-item="balde + 3 panos de chão" onclick="escolher(this)">
+        balde + 3 panos de chão
+      </button>
+
+      <button class="presente" data-item="vassoura + rodo" onclick="escolher(this)">
+        vassoura + rodo
+      </button>
+
+      <button class="presente" data-item="jogo de descanso de panelas" onclick="escolher(this)">
+        jogo de descanso de panelas
+      </button>
+
+      <button class="presente" data-item="kit de porta papel toalha (suporte) e porta guardanapo (bambu)" onclick="escolher(this)">
+        kit de porta papel toalha (suporte) e porta guardanapo (bambu)
+      </button>
+
+      <button class="presente" data-item="amolador de facas" onclick="escolher(this)">
+        amolador de facas
+      </button>
+
+      <button class="presente" data-item="kit de garfo para aperitivo (inox e bambu)" onclick="escolher(this)">
+        kit de garfo para aperitivo (inox e bambu)
+      </button>
+
+      <button class="presente" data-item="petisqueira de bambu" onclick="escolher(this)">
+        petisqueira de bambu
+      </button>
+
+      <button class="presente" data-item="forma de assar com o fundo removível" onclick="escolher(this)">
+        forma de assar com o fundo removível
+      </button>
+
+      <button class="presente" data-item="assadeira de silicone" onclick="escolher(this)">
+        assadeira de silicone
+      </button>
+
+      <button class="presente" data-item="jogo de copo de cerveja" onclick="escolher(this)">
+        jogo de copo de cerveja
+      </button>
+
+      <button class="presente" data-item="jogo de copo de cerveja" onclick="escolher(this)">
+        jogo de copo de cerveja
+      </button>
+
+      <button class="presente" data-item="tábua de carne" onclick="escolher(this)">
+        tábua de carne
+      </button>
+
+      <button class="presente" data-item="abridor de vinho + 5 panos de prato" onclick="escolher(this)">
+        abridor de vinho + 5 panos de prato
+      </button>
+
+      <button class="presente" data-item="abridor de lata + 5 panos de prato" onclick="escolher(this)">
+        abridor de lata + 5 panos de prato
+      </button>
+
+      <button class="presente" data-item="kit de pote de vidro de condimentos (tampa de bambu)" onclick="escolher(this)">
+        kit de pote de vidro de condimentos (tampa de bambu)
+      </button>
+
+      <button class="presente" data-item="escorredor de macarrão inox" onclick="escolher(this)">
+        escorredor de macarrão inox
+      </button>
+
+      <button class="presente" data-item="escorredor de arroz inox" onclick="escolher(this)">
+        escorredor de arroz inox
+      </button>
+
+      <button class="presente" data-item="funil + 5 panos de prato" onclick="escolher(this)">
+        funil + 5 panos de prato
+      </button>
+
+      <button class="presente" data-item="suporte filtro coador de café inox" onclick="escolher(this)">
+        suporte filtro coador de café inox
+      </button>
+
+      <button class="presente" data-item="escorredor de louça inox" onclick="escolher(this)">
+        escorredor de louça inox
+      </button>
+
+      <button class="presente" data-item="secador de saladas" onclick="escolher(this)">
+        secador de saladas
+      </button>
+
+      <button class="presente" data-item="copo medidor + 5 panos de prato" onclick="escolher(this)">
+        copo medidor + 5 panos de prato
+      </button>
+
+      <button class="presente" data-item="fruteira de mesa" onclick="escolher(this)">
+        fruteira de mesa
+      </button>
+
+      <button class="presente" data-item="gaveteira de ovos geladeira (2 andares)" onclick="escolher(this)">
+        gaveteira de ovos geladeira (2 andares)
+      </button>
+
+      <button class="presente" data-item="kit organizador de geladeira" onclick="escolher(this)">
+        kit organizador de geladeira
+      </button>
+
+      <button class="presente" data-item="porta frios de bambu" onclick="escolher(this)">
+        porta frios de bambu
+      </button>
+
+      <button class="presente" data-item="luva de proteção" onclick="escolher(this)">
+        luva de proteção
+      </button>
+
+      <button class="presente" data-item="toalha de mesa grande" onclick="escolher(this)">
+        toalha de mesa grande
+      </button>
+
+      <button class="presente" data-item="toalha de café" onclick="escolher(this)">
+        toalha de café
+      </button>
+
+      <button class="presente" data-item="pudinzeira" onclick="escolher(this)">
+        pudinzeira
+      </button>
+
+      <button class="presente" data-item="cesto de roupa bambu" onclick="escolher(this)">
+        cesto de roupa bambu
+      </button>
+
+      <button class="presente" data-item="kit de potes/tappeware (transparente)" onclick="escolher(this)">
+        kit de potes/tappeware (transparente)
+      </button>
+
+      <button class="presente" data-item="mesa bandeja de café da manhã com pézinho" onclick="escolher(this)">
+        mesa bandeja de café da manhã com pézinho
+      </button>
+
+      <button class="presente" data-item="jogo de taças" onclick="escolher(this)">
+        jogo de taças
+      </button>
+
+      <button class="presente" data-item="cesto para pães em bambu" onclick="escolher(this)">
+        cesto para pães em bambu
+      </button>
+
+      <button class="presente" data-item="jogo de utensílios de silicone" onclick="escolher(this)">
+        jogo de utensílios de silicone
+      </button>
+
+      <button class="presente" data-item="espremedor e amassador de alho + 2 panos de prato" onclick="escolher(this)">
+        espremedor e amassador de alho + 2 panos de prato
+      </button>
+
+      <button class="presente" data-item="pegador de massas" onclick="escolher(this)">
+        pegador de massas
+      </button>
+
+      <button class="presente" data-item="porta queijo de bambu" onclick="escolher(this)">
+        porta queijo de bambu
+      </button>
+
+      <button class="presente" data-item="conjunto de churrasco em aço inox" onclick="escolher(this)">
+        conjunto de churrasco em aço inox
+      </button>
+
+      <button class="presente" data-item="jogo de taça de cerveja" onclick="escolher(this)">
+        jogo de taça de cerveja
+      </button>
+
+      <button class="presente" data-item="forma de assar pizza + 3 panos de prato" onclick="escolher(this)">
+        forma de assar pizza + 3 panos de prato
+      </button>
+
+      <button class="presente" data-item="kit bandeja em inox ovais" onclick="escolher(this)">
+        kit bandeja em inox ovais
+      </button>
+
+      <button class="presente" data-item="prendedor de roupa + 5 panos de prato" onclick="escolher(this)">
+        prendedor de roupa + 5 panos de prato
+      </button>
+
+      <button class="presente" data-item="kit 3 assadeiras marinex" onclick="escolher(this)">
+        kit 3 assadeiras marinex
+      </button>
+
     </div>
 
-    <div class="list-title-big">
-       de Presentes
+    <p class="note">
+      Clique no presente que você gostaria de dar para avisar pelo WhatsApp.
+    </p>
+
+  </section>
+
+  <footer class="footer">
+
+    <div class="decoracao">
+      ✿ 𖧷 ✿
     </div>
 
-    <div class="gift-list">
-
-        <div class="gift" onclick="escolher('Jogo de copos (sem desenhos/liso)')">Jogo de copos (sem desenhos/liso)</div>
-        <div class="gift" onclick="escolher('Jogo de copos (sem desenhos/liso)')">Jogo de copos (sem desenhos/liso)</div>
-        <div class="gift" onclick="escolher('Jogo de copos (sem desenhos/liso)')">Jogo de copos (sem desenhos/liso)</div>
-
-        <div class="gift" onclick="escolher('Porta temperos giratório de bambu')">Porta temperos giratório de bambu</div>
-
-        <div class="gift" onclick="escolher('Jogo de talheres para churrasco')">Jogo de talheres para churrasco</div>
-        <div class="gift" onclick="escolher('Jogo de talheres para churrasco')">Jogo de talheres para churrasco</div>
-        <div class="gift" onclick="escolher('Jogo de talheres para churrasco')">Jogo de talheres para churrasco</div>
-
-        <div class="gift" onclick="escolher('Garrafa térmica clara')">Garrafa térmica clara</div>
-
-        <div class="gift" onclick="escolher('Jogo de talheres de inox')">Jogo de talheres de inox</div>
-
-        <div class="gift" onclick="escolher('Relógio de parede')">Relógio de parede</div>
-
-        <div class="gift" onclick="escolher('Lixeira de inox')">Lixeira de inox</div>
-        <div class="gift" onclick="escolher('Lixeira de inox')">Lixeira de inox</div>
-
-        <div class="gift" onclick="escolher('Tapete de cozinha')">Tapete de cozinha</div>
-        <div class="gift" onclick="escolher('Tapete de banheiro')">Tapete de banheiro</div>
-
-        <div class="gift" onclick="escolher('Balde + 3 panos de chão')">Balde + 3 panos de chão</div>
-
-        <div class="gift" onclick="escolher('Vassoura + rodo')">Vassoura + rodo</div>
-
-        <div class="gift" onclick="escolher('Jogo de descanso de panelas')">Jogo de descanso de panelas</div>
-
-        <div class="gift" onclick="escolher('Kit de porta papel toalha e porta guardanapo (bambu)')">Kit de porta papel toalha e porta guardanapo (bambu)</div>
-
-        <div class="gift" onclick="escolher('Amolador de facas')">Amolador de facas</div>
-
-        <div class="gift" onclick="escolher('Kit de garfo para aperitivo (inox e bambu)')">Kit de garfo para aperitivo (inox e bambu)</div>
-
-        <div class="gift" onclick="escolher('Petisqueira de bambu')">Petisqueira de bambu</div>
-
-        <div class="gift" onclick="escolher('Forma de assar com fundo removível')">Forma de assar com fundo removível</div>
-
-        <div class="gift" onclick="escolher('Assadeira de silicone')">Assadeira de silicone</div>
-
-        <div class="gift" onclick="escolher('Jogo de copo de cerveja')">Jogo de copo de cerveja</div>
-        <div class="gift" onclick="escolher('Jogo de copo de cerveja')">Jogo de copo de cerveja</div>
-
-        <div class="gift" onclick="escolher('Tábua de carne')">Tábua de carne</div>
-
-        <div class="gift" onclick="escolher('Abridor de vinho + 5 panos de prato')">Abridor de vinho + 5 panos de prato</div>
-
-        <div class="gift" onclick="escolher('Abridor de lata + 5 panos de prato')">Abridor de lata + 5 panos de prato</div>
-
-        <div class="gift" onclick="escolher('Kit de pote de vidro de condimentos (tampa de bambu)')">Kit de pote de vidro de condimentos (tampa de bambu)</div>
-
-        <div class="gift" onclick="escolher('Escorredor de macarrão inox')">Escorredor de macarrão inox</div>
-
-        <div class="gift" onclick="escolher('Escorredor de arroz inox')">Escorredor de arroz inox</div>
-
-        <div class="gift" onclick="escolher('Funil + 5 panos de prato')">Funil + 5 panos de prato</div>
-
-        <div class="gift" onclick="escolher('Suporte filtro coador de café inox')">Suporte filtro coador de café inox</div>
-
-        <div class="gift" onclick="escolher('Escorredor de louça inox')">Escorredor de louça inox</div>
-
-        <div class="gift" onclick="escolher('Secador de saladas')">Secador de saladas</div>
-
-        <div class="gift" onclick="escolher('Copo medidor + 5 panos de prato')">Copo medidor + 5 panos de prato</div>
-
-        <div class="gift" onclick="escolher('Fruteira de mesa')">Fruteira de mesa</div>
-
-        <div class="gift" onclick="escolher('Gaveteira de ovos para geladeira (2 andares)')">Gaveteira de ovos para geladeira (2 andares)</div>
-
-        <div class="gift" onclick="escolher('Kit organizador de geladeira')">Kit organizador de geladeira</div>
-
-        <div class="gift" onclick="escolher('Porta frios de bambu')">Porta frios de bambu</div>
-
-        <div class="gift" onclick="escolher('Luva de proteção')">Luva de proteção</div>
-
-        <div class="gift" onclick="escolher('Toalha de mesa grande')">Toalha de mesa grande</div>
-
-        <div class="gift" onclick="escolher('Toalha de café')">Toalha de café</div>
-
-        <div class="gift" onclick="escolher('Pudinzeira')">Pudinzeira</div>
-
-        <div class="gift" onclick="escolher('Cesto de roupa de bambu')">Cesto de roupa de bambu</div>
-
-        <div class="gift" onclick="escolher('Kit de potes/Tupperware transparente')">Kit de potes/Tupperware transparente</div>
-
-        <div class="gift" onclick="escolher('Mesa bandeja de café da manhã com pezinho')">Mesa bandeja de café da manhã com pezinho</div>
-
-        <div class="gift" onclick="escolher('Jogo de taças')">Jogo de taças</div>
-
-        <div class="gift" onclick="escolher('Cesto para pães em bambu')">Cesto para pães em bambu</div>
-
-        <div class="gift" onclick="escolher('Jogo de utensílios de silicone')">Jogo de utensílios de silicone</div>
-
-        <div class="gift" onclick="escolher('Espremedor e amassador de alho + 2 panos de prato')">Espremedor e amassador de alho + 2 panos de prato</div>
-
-        <div class="gift" onclick="escolher('Pegador de massas')">Pegador de massas</div>
-
-        <div class="gift" onclick="escolher('Porta queijo de bambu')">Porta queijo de bambu</div>
-
-        <div class="gift" onclick="escolher('Conjunto de churrasco em aço inox')">Conjunto de churrasco em aço inox</div>
-
-        <div class="gift" onclick="escolher('Jogo de taça de cerveja')">Jogo de taça de cerveja</div>
-
-        <div class="gift" onclick="escolher('Forma de assar pizza + 3 panos de prato')">Forma de assar pizza + 3 panos de prato</div>
-
-        <div class="gift" onclick="escolher('Kit bandeja em inox ovais')">Kit bandeja em inox ovais</div>
-
-        <div class="gift" onclick="escolher('Prendedor de roupa + 5 panos de prato')">Prendedor de roupa + 5 panos de prato</div>
-
-        <div class="gift" onclick="escolher('Kit 3 assadeiras Marinex')">Kit 3 assadeiras Marinex</div>
-
+    <div class="footer-title">
+      Com carinho,
     </div>
 
-    <footer class="footer">
+    <div class="footer-text">
+      Estamos muito felizes em compartilhar esse momento tão especial
+      com você e celebrar junto com a Dani o início dessa nova fase!
+    </div>
 
-        <div class="divider">
-            ─── ♥ ───
-        </div>
+  </footer>
 
-        <p class="footer-message">
-            Escolha o presente que deseja dar e clique nele
-            para falar conosco pelo WhatsApp. 💕
-        </p>
-
-        <div class="thanks">
-            Obrigada!
-        </div>
-
-        <div class="note">
-            Todo presente será recebido com muito carinho.
-        </div>
-
-    </footer>
-
-</div>
+</main>
 
 <script>
 
-function escolher(item) {
+const telefone = "5543991089579";
 
-    const numero = "5543999999999";
+function escolher(botao){
 
-    const mensagem =
-        "Olá! 💕 Escolhi o seguinte presente para o Chá de Panela da Dani: " +
-        item +
-        ". Pode me enviar as indicações, por favor?";
+  const item = botao.dataset.item;
 
-    const url =
-        "https://wa.me/" +
-        numero +
-        "?text=" +
-        encodeURIComponent(mensagem);
+  const mensagem =
+`Olá! 🧡💐
 
-    window.open(url, "_blank");
+Escolhi este presente para a Dani:
+*${item}*
+
+Estou te avisando para não haver presente repetido. 🧡`;
+
+  const url =
+    `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+  window.open(url, "_blank");
+
 }
 
 </script>
