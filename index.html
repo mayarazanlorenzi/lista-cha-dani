@@ -4,496 +4,436 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lista de Presentes | Chá de Panela da Dani</title>
+<title>Lista de Presentes — Chá da Dani</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background: #fff8f3;
-  color: #7d4657;
-  font-family: Georgia, "Times New Roman", serif;
+    margin: 0;
+    background: #fff7f4;
+    color: #633d38;
+    font-family: 'Cormorant Garamond', serif;
 }
 
-.pagina {
-  width: 100%;
-  max-width: 850px;
-  margin: auto;
-  padding: 65px 45px 90px;
-  position: relative;
-  overflow: hidden;
+.container {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 28px 22px 45px;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
-/* ELEMENTOS DECORATIVOS */
+/* Moldura */
 
-.decoracao {
-  position: absolute;
-  font-size: 55px;
-  opacity: .85;
+.container::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid #efb5a8;
+    border-radius: 28px;
+    pointer-events: none;
 }
 
-.flor1 {
-  top: 25px;
-  left: 15px;
+/* Decoração */
+
+.flower {
+    position: absolute;
+    font-size: 45px;
+    opacity: .8;
 }
 
-.flor2 {
-  top: 35px;
-  right: 15px;
+.flower.one {
+    top: 20px;
+    left: 15px;
 }
 
-.flor3 {
-  bottom: 25px;
-  left: 15px;
+.flower.two {
+    top: 20px;
+    right: 15px;
 }
 
-.flor4 {
-  bottom: 35px;
-  right: 15px;
+.flower.three {
+    bottom: 20px;
+    left: 15px;
 }
 
-/* CABEÇALHO */
-
-.cabecalho {
-  text-align: center;
-  margin-bottom: 65px;
+.flower.four {
+    bottom: 20px;
+    right: 15px;
 }
 
-.pequeno {
-  color: #d9547d;
-  font-size: 18px;
-  letter-spacing: 4px;
-  margin-bottom: 10px;
+/* Cabeçalho */
+
+.header {
+    text-align: center;
+    padding: 35px 20px 25px;
 }
 
-h1 {
-  margin: 0;
-  color: #ee7138;
-  font-size: 58px;
-  font-weight: normal;
-  font-style: italic;
+.small-title {
+    color: #d95b32;
+    font-size: 25px;
+    letter-spacing: 1px;
+    margin-bottom: 0;
 }
 
-.linha {
-  width: 90px;
-  height: 2px;
-  background: #e8a06e;
-  margin: 25px auto;
+.title {
+    font-family: 'Great Vibes', cursive;
+    color: #e4572e;
+    font-size: 75px;
+    line-height: .9;
+    margin: 5px 0 20px;
 }
 
-.introducao {
-  max-width: 520px;
-  margin: auto;
-  font-size: 18px;
-  line-height: 1.7;
-  color: #93606d;
+.pan {
+    font-size: 65px;
+    margin: 10px 0;
 }
 
-/* LISTA */
-
-.categoria {
-  margin-top: 65px;
+.subtitle {
+    color: #d94d72;
+    font-size: 26px;
+    margin: 15px 0 8px;
 }
 
-.categoria-titulo {
-  text-align: center;
-  color: #e56d3d;
-  font-size: 23px;
-  letter-spacing: 2px;
-  font-weight: normal;
-  margin-bottom: 28px;
+.description {
+    font-size: 20px;
+    line-height: 1.35;
+    margin: 0 auto;
+    max-width: 500px;
 }
 
-.lista {
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
+/* Separador */
+
+.divider {
+    text-align: center;
+    color: #e65b32;
+    font-size: 24px;
+    margin: 20px 0 28px;
 }
 
-.presente {
-  display: block;
-  padding: 17px 22px;
-  border: 1px solid #edb5a5;
-  border-radius: 14px;
-  background: rgba(255,255,255,.65);
-  color: #854b5d;
-  text-decoration: none;
-  font-size: 17px;
-  line-height: 1.4;
-  transition: .2s ease;
+/* Lista */
+
+.list-title {
+    text-align: center;
+    color: #d94d72;
+    font-size: 24px;
+    margin-bottom: 8px;
 }
 
-.presente:hover {
-  background: white;
-  transform: translateY(-2px);
+.list-title-big {
+    font-family: 'Great Vibes', cursive;
+    color: #e4572e;
+    font-size: 55px;
+    text-align: center;
+    margin: 0 0 25px;
 }
 
-.presente.escolhido {
-  text-decoration: line-through;
-  opacity: .48;
+/* Itens */
+
+.gift-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-/* RODAPÉ */
-
-.rodape {
-  text-align: center;
-  margin-top: 75px;
-  color: #986270;
-  font-size: 17px;
-  line-height: 1.7;
+.gift {
+    background: rgba(255,255,255,.65);
+    border: 1px solid #efc2b7;
+    border-radius: 18px;
+    padding: 15px 20px;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+    transition: .2s;
+    box-shadow: 0 3px 8px rgba(190,100,80,.08);
 }
 
-.coracao {
-  color: #d9547d;
-  font-size: 25px;
+.gift:hover {
+    transform: translateY(-2px);
+    background: #fff0ec;
 }
 
-/* CELULAR */
+.gift:active {
+    transform: scale(.98);
+}
 
-@media (max-width: 600px) {
+/* Rodapé */
 
-  .pagina {
-    padding: 45px 20px 70px;
-  }
+.footer {
+    text-align: center;
+    margin-top: 38px;
+}
 
-  h1 {
-    font-size: 46px;
-  }
+.footer-message {
+    font-size: 19px;
+    line-height: 1.4;
+    max-width: 480px;
+    margin: 0 auto 18px;
+}
 
-  .pequeno {
+.thanks {
+    font-family: 'Great Vibes', cursive;
+    color: #e4572e;
+    font-size: 48px;
+}
+
+.note {
     font-size: 15px;
-    letter-spacing: 3px;
-  }
+    color: #9b6a61;
+    margin-top: 15px;
+}
 
-  .introducao {
-    font-size: 16px;
-  }
+@media (max-width: 500px) {
 
-  .presente {
-    font-size: 16px;
-    padding: 15px 17px;
-  }
+    .container {
+        padding: 20px 17px 35px;
+    }
 
-  .decoracao {
-    font-size: 38px;
-  }
+    .small-title {
+        font-size: 21px;
+    }
+
+    .title {
+        font-size: 63px;
+    }
+
+    .pan {
+        font-size: 52px;
+    }
+
+    .subtitle {
+        font-size: 23px;
+    }
+
+    .description {
+        font-size: 18px;
+    }
+
+    .list-title-big {
+        font-size: 48px;
+    }
+
+    .gift {
+        font-size: 18px;
+        padding: 14px 15px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="pagina">
+<div class="container">
 
-  <div class="decoracao flor1">🌸</div>
-  <div class="decoracao flor2">🌺</div>
-  <div class="decoracao flor3">🌷</div>
-  <div class="decoracao flor4">🌸</div>
+    <div class="flower one">🌸</div>
+    <div class="flower two">🌸</div>
+    <div class="flower three">🌸</div>
+    <div class="flower four">🌸</div>
 
-  <main>
+    <header class="header">
 
-    <header class="cabecalho">
+        <div class="small-title">
+            CHÁ DE PANELA DA
+        </div>
 
-      <div class="pequeno">
-        CHÁ DE PANELA DA
-      </div>
+        <div class="title">
+            Dani
+        </div>
 
-      <h1>Dani</h1>
+        <div class="pan">
+            🥘
+        </div>
 
-      <div class="linha"></div>
+        <div class="subtitle">
+            Lista de Presentes
+        </div>
 
-      <p class="introducao">
-        Para quem quiser presentear a Dani,
-        preparamos essa lista com muito carinho.
-        Escolha um item e fale com a gente para
-        receber a indicação do modelo escolhido.
-      </p>
+        <p class="description">
+            Escolha com carinho o presente que deseja dar
+            e entre em contato para receber as indicações.
+        </p>
 
     </header>
 
+    <div class="divider">
+        ─── ♥ ───
+    </div>
 
-    <!-- COZINHA -->
+    <div class="list-title">
+        NOSSAS SUGESTÕES
+    </div>
 
-    <section class="categoria">
+    <div class="list-title-big">
+        Presentes
+    </div>
 
-      <h2 class="categoria-titulo">
-        COZINHA
-      </h2>
+    <div class="gift-list">
 
-      <div class="lista">
+        <div class="gift" onclick="escolher('Jogo de copos (sem desenhos/liso)')">Jogo de copos (sem desenhos/liso)</div>
+        <div class="gift" onclick="escolher('Jogo de copos (sem desenhos/liso)')">Jogo de copos (sem desenhos/liso)</div>
+        <div class="gift" onclick="escolher('Jogo de copos (sem desenhos/liso)')">Jogo de copos (sem desenhos/liso)</div>
 
-        <a class="presente" href="#">
-          Jogo de copos (sem desenhos/liso)
-        </a>
+        <div class="gift" onclick="escolher('Porta temperos giratório de bambu')">Porta temperos giratório de bambu</div>
 
-        <a class="presente" href="#">
-          Jogo de copos (sem desenhos/liso)
-        </a>
+        <div class="gift" onclick="escolher('Jogo de talheres para churrasco')">Jogo de talheres para churrasco</div>
+        <div class="gift" onclick="escolher('Jogo de talheres para churrasco')">Jogo de talheres para churrasco</div>
+        <div class="gift" onclick="escolher('Jogo de talheres para churrasco')">Jogo de talheres para churrasco</div>
 
-        <a class="presente" href="#">
-          Jogo de copos (sem desenhos/liso)
-        </a>
+        <div class="gift" onclick="escolher('Garrafa térmica clara')">Garrafa térmica clara</div>
 
-        <a class="presente" href="#">
-          Porta temperos giratório de bambu
-        </a>
+        <div class="gift" onclick="escolher('Jogo de talheres de inox')">Jogo de talheres de inox</div>
 
-        <a class="presente" href="#">
-          Jogo de talheres para churrasco
-        </a>
+        <div class="gift" onclick="escolher('Relógio de parede')">Relógio de parede</div>
 
-        <a class="presente" href="#">
-          Jogo de talheres para churrasco
-        </a>
+        <div class="gift" onclick="escolher('Lixeira de inox')">Lixeira de inox</div>
+        <div class="gift" onclick="escolher('Lixeira de inox')">Lixeira de inox</div>
 
-        <a class="presente" href="#">
-          Jogo de talheres para churrasco
-        </a>
+        <div class="gift" onclick="escolher('Tapete de cozinha')">Tapete de cozinha</div>
+        <div class="gift" onclick="escolher('Tapete de banheiro')">Tapete de banheiro</div>
 
-        <a class="presente" href="#">
-          Garrafa térmica clara
-        </a>
+        <div class="gift" onclick="escolher('Balde + 3 panos de chão')">Balde + 3 panos de chão</div>
 
-        <a class="presente" href="#">
-          Jogo de talheres de inox
-        </a>
+        <div class="gift" onclick="escolher('Vassoura + rodo')">Vassoura + rodo</div>
 
-        <a class="presente" href="#">
-          Lixeira de inox
-        </a>
+        <div class="gift" onclick="escolher('Jogo de descanso de panelas')">Jogo de descanso de panelas</div>
 
-        <a class="presente" href="#">
-          Lixeira de inox
-        </a>
+        <div class="gift" onclick="escolher('Kit de porta papel toalha e porta guardanapo (bambu)')">Kit de porta papel toalha e porta guardanapo (bambu)</div>
 
-        <a class="presente" href="#">
-          Jogo de descanso de panelas
-        </a>
+        <div class="gift" onclick="escolher('Amolador de facas')">Amolador de facas</div>
 
-        <a class="presente" href="#">
-          Kit porta-papel-toalha + porta-guardanapo de bambu
-        </a>
+        <div class="gift" onclick="escolher('Kit de garfo para aperitivo (inox e bambu)')">Kit de garfo para aperitivo (inox e bambu)</div>
 
-        <a class="presente" href="#">
-          Amolador de facas
-        </a>
+        <div class="gift" onclick="escolher('Petisqueira de bambu')">Petisqueira de bambu</div>
 
-        <a class="presente" href="#">
-          Kit de garfos para aperitivo (inox e bambu)
-        </a>
+        <div class="gift" onclick="escolher('Forma de assar com fundo removível')">Forma de assar com fundo removível</div>
 
-        <a class="presente" href="#">
-          Petisqueira de bambu
-        </a>
+        <div class="gift" onclick="escolher('Assadeira de silicone')">Assadeira de silicone</div>
 
-        <a class="presente" href="#">
-          Forma de assar com fundo removível
-        </a>
+        <div class="gift" onclick="escolher('Jogo de copo de cerveja')">Jogo de copo de cerveja</div>
+        <div class="gift" onclick="escolher('Jogo de copo de cerveja')">Jogo de copo de cerveja</div>
 
-        <a class="presente" href="#">
-          Assadeira de silicone
-        </a>
+        <div class="gift" onclick="escolher('Tábua de carne')">Tábua de carne</div>
 
-        <a class="presente" href="#">
-          Jogo de copos de cerveja
-        </a>
+        <div class="gift" onclick="escolher('Abridor de vinho + 5 panos de prato')">Abridor de vinho + 5 panos de prato</div>
 
-        <a class="presente" href="#">
-          Jogo de copos de cerveja
-        </a>
+        <div class="gift" onclick="escolher('Abridor de lata + 5 panos de prato')">Abridor de lata + 5 panos de prato</div>
 
-        <a class="presente" href="#">
-          Tábua de carne
-        </a>
+        <div class="gift" onclick="escolher('Kit de pote de vidro de condimentos (tampa de bambu)')">Kit de pote de vidro de condimentos (tampa de bambu)</div>
 
-        <a class="presente" href="#">
-          Abridor de vinho + 5 panos de prato
-        </a>
+        <div class="gift" onclick="escolher('Escorredor de macarrão inox')">Escorredor de macarrão inox</div>
 
-        <a class="presente" href="#">
-          Abridor de lata + 5 panos de prato
-        </a>
-
-        <a class="presente" href="#">
-          Kit de potes de vidro de condimentos (tampa de bambu)
-        </a>
-
-        <a class="presente" href="#">
-          Escorredor de macarrão inox
-        </a>
-
-        <a class="presente" href="#">
-          Escorredor de arroz inox
-        </a>
-
-        <a class="presente" href="#">
-          Funil + 5 panos de prato
-        </a>
-
-        <a class="presente" href="#">
-          Suporte para filtro/coador de café inox
-        </a>
+        <div class="gift" onclick="escolher('Escorredor de arroz inox')">Escorredor de arroz inox</div>
 
-        <a class="presente" href="#">
-          Escorredor de louça inox
-        </a>
+        <div class="gift" onclick="escolher('Funil + 5 panos de prato')">Funil + 5 panos de prato</div>
 
-        <a class="presente" href="#">
-          Secador de saladas
-        </a>
+        <div class="gift" onclick="escolher('Suporte filtro coador de café inox')">Suporte filtro coador de café inox</div>
 
-        <a class="presente" href="#">
-          Copo medidor + 5 panos de prato
-        </a>
+        <div class="gift" onclick="escolher('Escorredor de louça inox')">Escorredor de louça inox</div>
 
-        <a class="presente" href="#">
-          Fruteira de mesa
-        </a>
+        <div class="gift" onclick="escolher('Secador de saladas')">Secador de saladas</div>
 
-        <a class="presente" href="#">
-          Gaveteira de ovos para geladeira (2 andares)
-        </a>
+        <div class="gift" onclick="escolher('Copo medidor + 5 panos de prato')">Copo medidor + 5 panos de prato</div>
 
-        <a class="presente" href="#">
-          Kit organizador de geladeira
-        </a>
+        <div class="gift" onclick="escolher('Fruteira de mesa')">Fruteira de mesa</div>
 
-        <a class="presente" href="#">
-          Porta-frios de bambu
-        </a>
+        <div class="gift" onclick="escolher('Gaveteira de ovos para geladeira (2 andares)')">Gaveteira de ovos para geladeira (2 andares)</div>
 
-        <a class="presente" href="#">
-          Luva de proteção
-        </a>
+        <div class="gift" onclick="escolher('Kit organizador de geladeira')">Kit organizador de geladeira</div>
 
-        <a class="presente" href="#">
-          Toalha de mesa grande
-        </a>
+        <div class="gift" onclick="escolher('Porta frios de bambu')">Porta frios de bambu</div>
 
-        <a class="presente" href="#">
-          Toalha de café
-        </a>
+        <div class="gift" onclick="escolher('Luva de proteção')">Luva de proteção</div>
 
-        <a class="presente" href="#">
-          Pudinzeira
-        </a>
+        <div class="gift" onclick="escolher('Toalha de mesa grande')">Toalha de mesa grande</div>
 
-        <a class="presente" href="#">
-          Mesa/bandeja de café da manhã com pezinho
-        </a>
+        <div class="gift" onclick="escolher('Toalha de café')">Toalha de café</div>
 
-        <a class="presente" href="#">
-          Jogo de taças
-        </a>
+        <div class="gift" onclick="escolher('Pudinzeira')">Pudinzeira</div>
 
-        <a class="presente" href="#">
-          Cesto para pães de bambu
-        </a>
+        <div class="gift" onclick="escolher('Cesto de roupa de bambu')">Cesto de roupa de bambu</div>
 
-        <a class="presente" href="#">
-          Jogo de utensílios de silicone
-        </a>
+        <div class="gift" onclick="escolher('Kit de potes/Tupperware transparente')">Kit de potes/Tupperware transparente</div>
 
-        <a class="presente" href="#">
-          Espremedor e amassador de alho + 2 panos de prato
-        </a>
+        <div class="gift" onclick="escolher('Mesa bandeja de café da manhã com pezinho')">Mesa bandeja de café da manhã com pezinho</div>
 
-        <a class="presente" href="#">
-          Pegador de massas
-        </a>
+        <div class="gift" onclick="escolher('Jogo de taças')">Jogo de taças</div>
 
-        <a class="presente" href="#">
-          Porta-queijo de bambu
-        </a>
+        <div class="gift" onclick="escolher('Cesto para pães em bambu')">Cesto para pães em bambu</div>
 
-        <a class="presente" href="#">
-          Conjunto de churrasco em aço inox
-        </a>
+        <div class="gift" onclick="escolher('Jogo de utensílios de silicone')">Jogo de utensílios de silicone</div>
 
-        <a class="presente" href="#">
-          Jogo de taças de cerveja
-        </a>
+        <div class="gift" onclick="escolher('Espremedor e amassador de alho + 2 panos de prato')">Espremedor e amassador de alho + 2 panos de prato</div>
 
-        <a class="presente" href="#">
-          Forma de assar pizza + 3 panos de prato
-        </a>
+        <div class="gift" onclick="escolher('Pegador de massas')">Pegador de massas</div>
 
-        <a class="presente" href="#">
-          Kit de bandejas ovais em inox
-        </a>
+        <div class="gift" onclick="escolher('Porta queijo de bambu')">Porta queijo de bambu</div>
 
-        <a class="presente" href="#">
-          Prendedor de roupa + 5 panos de prato
-        </a>
+        <div class="gift" onclick="escolher('Conjunto de churrasco em aço inox')">Conjunto de churrasco em aço inox</div>
 
-        <a class="presente" href="#">
-          Kit com 3 assadeiras Marinex
-        </a>
+        <div class="gift" onclick="escolher('Jogo de taça de cerveja')">Jogo de taça de cerveja</div>
 
-      </div>
-    </section>
+        <div class="gift" onclick="escolher('Forma de assar pizza + 3 panos de prato')">Forma de assar pizza + 3 panos de prato</div>
 
+        <div class="gift" onclick="escolher('Kit bandeja em inox ovais')">Kit bandeja em inox ovais</div>
 
-    <!-- CASA E LIMPEZA -->
+        <div class="gift" onclick="escolher('Prendedor de roupa + 5 panos de prato')">Prendedor de roupa + 5 panos de prato</div>
 
-    <section class="categoria">
+        <div class="gift" onclick="escolher('Kit 3 assadeiras Marinex')">Kit 3 assadeiras Marinex</div>
 
-      <h2 class="categoria-titulo">
-        CASA &amp; LIMPEZA
-      </h2>
+    </div>
 
-      <div class="lista">
+    <footer class="footer">
 
-        <a class="presente" href="#">
-          Relógio de parede
-        </a>
+        <div class="divider">
+            ─── ♥ ───
+        </div>
 
-        <a class="presente" href="#">
-          Tapete de cozinha
-        </a>
+        <p class="footer-message">
+            Escolha o presente que deseja dar e clique nele
+            para falar conosco pelo WhatsApp. 💕
+        </p>
 
-        <a class="presente" href="#">
-          Tapete de banheiro
-        </a>
+        <div class="thanks">
+            Obrigada!
+        </div>
 
-        <a class="presente" href="#">
-          Balde + 3 panos de chão
-        </a>
-
-        <a class="presente" href="#">
-          Vassoura + rodo
-        </a>
-
-        <a class="presente" href="#">
-          Cesto de roupa de bambu
-        </a>
-
-        <a class="presente" href="#">
-          Kit de potes/Tupperware transparentes
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <footer class="rodape">
-
-      <div class="coracao">♡</div>
-
-      <p>
-        Obrigada por fazer parte<br>
-        desse momento tão especial!
-      </p>
+        <div class="note">
+            Todo presente será recebido com muito carinho.
+        </div>
 
     </footer>
 
-  </main>
-
 </div>
+
+<script>
+
+function escolher(item) {
+
+    const numero = "5543999999999";
+
+    const mensagem =
+        "Olá! 💕 Escolhi o seguinte presente para o Chá de Panela da Dani: " +
+        item +
+        ". Pode me enviar as indicações, por favor?";
+
+    const url =
+        "https://wa.me/" +
+        numero +
+        "?text=" +
+        encodeURIComponent(mensagem);
+
+    window.open(url, "_blank");
+}
+
+</script>
 
 </body>
 </html>
