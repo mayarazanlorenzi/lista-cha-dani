@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lista de Presentes | Chá de Panela da Dani</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff8f3;
+  color: #7d4657;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.pagina {
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+  padding: 65px 45px 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ELEMENTOS DECORATIVOS */
+
+.decoracao {
+  position: absolute;
+  font-size: 55px;
+  opacity: .85;
+}
+
+.flor1 {
+  top: 25px;
+  left: 15px;
+}
+
+.flor2 {
+  top: 35px;
+  right: 15px;
+}
+
+.flor3 {
+  bottom: 25px;
+  left: 15px;
+}
+
+.flor4 {
+  bottom: 35px;
+  right: 15px;
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+  text-align: center;
+  margin-bottom: 65px;
+}
+
+.pequeno {
+  color: #d9547d;
+  font-size: 18px;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin: 0;
+  color: #ee7138;
+  font-size: 58px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.linha {
+  width: 90px;
+  height: 2px;
+  background: #e8a06e;
+  margin: 25px auto;
+}
+
+.introducao {
+  max-width: 520px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #93606d;
+}
+
+/* LISTA */
+
+.categoria {
+  margin-top: 65px;
+}
+
+.categoria-titulo {
+  text-align: center;
+  color: #e56d3d;
+  font-size: 23px;
+  letter-spacing: 2px;
+  font-weight: normal;
+  margin-bottom: 28px;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.presente {
+  display: block;
+  padding: 17px 22px;
+  border: 1px solid #edb5a5;
+  border-radius: 14px;
+  background: rgba(255,255,255,.65);
+  color: #854b5d;
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 1.4;
+  transition: .2s ease;
+}
+
+.presente:hover {
+  background: white;
+  transform: translateY(-2px);
+}
+
+.presente.escolhido {
+  text-decoration: line-through;
+  opacity: .48;
+}
+
+/* RODAPÉ */
+
+.rodape {
+  text-align: center;
+  margin-top: 75px;
+  color: #986270;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.coracao {
+  color: #d9547d;
+  font-size: 25px;
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+  .pagina {
+    padding: 45px 20px 70px;
+  }
+
+  h1 {
+    font-size: 46px;
+  }
+
+  .pequeno {
+    font-size: 15px;
+    letter-spacing: 3px;
+  }
+
+  .introducao {
+    font-size: 16px;
+  }
+
+  .presente {
+    font-size: 16px;
+    padding: 15px 17px;
+  }
+
+  .decoracao {
+    font-size: 38px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="pagina">
+
+  <div class="decoracao flor1">🌸</div>
+  <div class="decoracao flor2">🌺</div>
+  <div class="decoracao flor3">🌷</div>
+  <div class="decoracao flor4">🌸</div>
+
+  <main>
+
+    <header class="cabecalho">
+
+      <div class="pequeno">
+        CHÁ DE PANELA DA
+      </div>
+
+      <h1>Dani</h1>
+
+      <div class="linha"></div>
+
+      <p class="introducao">
+        Para quem quiser presentear a Dani,
+        preparamos essa lista com muito carinho.
+        Escolha um item e fale com a gente para
+        receber a indicação do modelo escolhido.
+      </p>
+
+    </header>
+
+
+    <!-- COZINHA -->
+
+    <section class="categoria">
+
+      <h2 class="categoria-titulo">
+        COZINHA
+      </h2>
+
+      <div class="lista">
+
+        <a class="presente" href="#">
+          Jogo de copos (sem desenhos/liso)
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de copos (sem desenhos/liso)
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de copos (sem desenhos/liso)
+        </a>
+
+        <a class="presente" href="#">
+          Porta temperos giratório de bambu
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de talheres para churrasco
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de talheres para churrasco
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de talheres para churrasco
+        </a>
+
+        <a class="presente" href="#">
+          Garrafa térmica clara
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de talheres de inox
+        </a>
+
+        <a class="presente" href="#">
+          Lixeira de inox
+        </a>
+
+        <a class="presente" href="#">
+          Lixeira de inox
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de descanso de panelas
+        </a>
+
+        <a class="presente" href="#">
+          Kit porta-papel-toalha + porta-guardanapo de bambu
+        </a>
+
+        <a class="presente" href="#">
+          Amolador de facas
+        </a>
+
+        <a class="presente" href="#">
+          Kit de garfos para aperitivo (inox e bambu)
+        </a>
+
+        <a class="presente" href="#">
+          Petisqueira de bambu
+        </a>
+
+        <a class="presente" href="#">
+          Forma de assar com fundo removível
+        </a>
+
+        <a class="presente" href="#">
+          Assadeira de silicone
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de copos de cerveja
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de copos de cerveja
+        </a>
+
+        <a class="presente" href="#">
+          Tábua de carne
+        </a>
+
+        <a class="presente" href="#">
+          Abridor de vinho + 5 panos de prato
+        </a>
+
+        <a class="presente" href="#">
+          Abridor de lata + 5 panos de prato
+        </a>
+
+        <a class="presente" href="#">
+          Kit de potes de vidro de condimentos (tampa de bambu)
+        </a>
+
+        <a class="presente" href="#">
+          Escorredor de macarrão inox
+        </a>
+
+        <a class="presente" href="#">
+          Escorredor de arroz inox
+        </a>
+
+        <a class="presente" href="#">
+          Funil + 5 panos de prato
+        </a>
+
+        <a class="presente" href="#">
+          Suporte para filtro/coador de café inox
+        </a>
+
+        <a class="presente" href="#">
+          Escorredor de louça inox
+        </a>
+
+        <a class="presente" href="#">
+          Secador de saladas
+        </a>
+
+        <a class="presente" href="#">
+          Copo medidor + 5 panos de prato
+        </a>
+
+        <a class="presente" href="#">
+          Fruteira de mesa
+        </a>
+
+        <a class="presente" href="#">
+          Gaveteira de ovos para geladeira (2 andares)
+        </a>
+
+        <a class="presente" href="#">
+          Kit organizador de geladeira
+        </a>
+
+        <a class="presente" href="#">
+          Porta-frios de bambu
+        </a>
+
+        <a class="presente" href="#">
+          Luva de proteção
+        </a>
+
+        <a class="presente" href="#">
+          Toalha de mesa grande
+        </a>
+
+        <a class="presente" href="#">
+          Toalha de café
+        </a>
+
+        <a class="presente" href="#">
+          Pudinzeira
+        </a>
+
+        <a class="presente" href="#">
+          Mesa/bandeja de café da manhã com pezinho
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de taças
+        </a>
+
+        <a class="presente" href="#">
+          Cesto para pães de bambu
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de utensílios de silicone
+        </a>
+
+        <a class="presente" href="#">
+          Espremedor e amassador de alho + 2 panos de prato
+        </a>
+
+        <a class="presente" href="#">
+          Pegador de massas
+        </a>
+
+        <a class="presente" href="#">
+          Porta-queijo de bambu
+        </a>
+
+        <a class="presente" href="#">
+          Conjunto de churrasco em aço inox
+        </a>
+
+        <a class="presente" href="#">
+          Jogo de taças de cerveja
+        </a>
+
+        <a class="presente" href="#">
+          Forma de assar pizza + 3 panos de prato
+        </a>
+
+        <a class="presente" href="#">
+          Kit de bandejas ovais em inox
+        </a>
+
+        <a class="presente" href="#">
+          Prendedor de roupa + 5 panos de prato
+        </a>
+
+        <a class="presente" href="#">
+          Kit com 3 assadeiras Marinex
+        </a>
+
+      </div>
+    </section>
+
+
+    <!-- CASA E LIMPEZA -->
+
+    <section class="categoria">
+
+      <h2 class="categoria-titulo">
+        CASA &amp; LIMPEZA
+      </h2>
+
+      <div class="lista">
+
+        <a class="presente" href="#">
+          Relógio de parede
+        </a>
+
+        <a class="presente" href="#">
+          Tapete de cozinha
+        </a>
+
+        <a class="presente" href="#">
+          Tapete de banheiro
+        </a>
+
+        <a class="presente" href="#">
+          Balde + 3 panos de chão
+        </a>
+
+        <a class="presente" href="#">
+          Vassoura + rodo
+        </a>
+
+        <a class="presente" href="#">
+          Cesto de roupa de bambu
+        </a>
+
+        <a class="presente" href="#">
+          Kit de potes/Tupperware transparentes
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <footer class="rodape">
+
+      <div class="coracao">♡</div>
+
+      <p>
+        Obrigada por fazer parte<br>
+        desse momento tão especial!
+      </p>
+
+    </footer>
+
+  </main>
+
+</div>
+
+</body>
+</html>
